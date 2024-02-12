@@ -46,7 +46,10 @@
     term.font
     window.addEventListener('resize', fitTerminal); // Call on window resize
 
-    var ws = new WebSocket('ws://localhost:3000');
+    var wsUrl = window.location.protocol == "https:" ? "wss://" : "ws://"; // Determine the protocol (http or https)
+    wsUrl += window.location.hostname; // Get the hostname (domain)
+    wsUrl += ":" + window.location.port; // Get the port
+    var ws = new WebSocket(wsUrl);
 
     ws.onopen = () => {
       console.log('WebSocket connection established');
