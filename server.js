@@ -16,7 +16,7 @@ const sshConfig = {
   host: 'ec2-54-210-234-102.compute-1.amazonaws.com',
   port: 22,
   username: 'ec2-user',
-  privateKey: fs.readFileSync('.\\ec2-instance-key\\keypair.pem')
+  privateKey: fs.readFileSync('./ec2-instance-key/keypair.pem')
   // Add privateKey or password here
 };
 
@@ -69,7 +69,7 @@ wss.on('connection', (ws) => {
 });
 
 // Start the server
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000
 server.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
